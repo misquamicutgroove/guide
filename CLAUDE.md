@@ -14,6 +14,7 @@ Guest-facing site for the house at 2 Uzzi Ave, Westerly, RI: a House Manual and 
 - `/` home
 - `/house-manual` with `/instructions` and `/house-rules`
 - `/local-guide` landing page linking to `/beach`, `/food-drink`, `/explore`, `/misc`
+- **Local Guide sub-nav:** the four sub-pages each have a `<nav class="sub-nav">` tab bar right under the main nav (styles in `shared.css`). The current page's link gets `class="active" aria-current="page"`. **A new Local Guide page must copy this block** (and be added to the block on the other pages). The landing page intentionally has no sub-nav.
 
 ## Content conventions
 - Listings are `<li><a href="..." target="_blank">Name</a> — short description</li>`. Use plain text, not a link, when no URL is known.

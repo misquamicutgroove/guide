@@ -38,6 +38,39 @@ body {
 .nav-links a:hover { color: #ce709d; }
 .nav-links a.active { color: #ce709d; }
 
+/* ── Sub-nav (tab bar under the main nav, e.g. Local Guide pages) ── */
+.sub-nav {
+  background: #fdf0f5;
+  border-bottom: 1px solid #f0e0e8;
+  padding: 0 5vw;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  position: sticky;
+  top: 70px;
+  z-index: 99;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.sub-nav a {
+  color: #555;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  padding: 12px 16px;
+  border-bottom: 3px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.sub-nav a:hover { color: #ce709d; }
+.sub-nav a.active { color: #ce709d; border-bottom-color: #ce709d; }
+.sub-nav { scrollbar-width: none; }
+.sub-nav::-webkit-scrollbar { display: none; }
+@media (max-width: 640px) {
+  .sub-nav { justify-content: space-between; gap: 0; padding: 0 2vw; }
+  .sub-nav a { font-size: 12px; letter-spacing: 0; padding: 12px 8px; }
+}
+
 /* ── Page header ── */
 .page-header {
   text-align: center;
