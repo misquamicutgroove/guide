@@ -5,6 +5,8 @@ Guest-facing site for the house at 2 Uzzi Ave, Westerly, RI: a House Manual and 
 ## How the site is built
 - Plain static HTML and CSS. **No build step, no framework, no package.json.**
 - Hosted on Netlify (`netlify.toml`), deployed from the `main` branch of `misquamicutgroove/guide`.
+- Netlify project: `sunny-belekoy-8b7edb` (dashboard: https://app.netlify.com/projects/sunny-belekoy-8b7edb). Production domain: `misquamicutgroove.com`.
+- Merging to `main` auto-deploys to production within a few minutes (confirmed Oct 2026). **Every PR automatically gets a Deploy Preview** at `https://deploy-preview-<PR number>--sunny-belekoy-8b7edb.netlify.app`. Netlify comments the link on the PR and adds a `deploy-preview` check.
 - Every page repeats the same nav and footer markup. There are no templates, so a new page means copying an existing one (e.g. `local-guide/misc/index.html`).
 - Shared styles live in `css/shared.css`. Useful classes: `.two-col`, `.divider`, `.info-table`, `.page-header`, `.page-content`.
 
@@ -24,7 +26,7 @@ Guest-facing site for the house at 2 Uzzi Ave, Westerly, RI: a House Manual and 
 2. **Branch off `main`**, named `<issue-number>-short-description`, e.g. `1-grey-sail-link`.
 3. **Commit** with a clear message.
 4. **Open a PR** from the branch. Fill in the template and put `Closes #<issue>` in the description so the issue closes on merge.
-5. **Check the Netlify deploy preview** before merging.
+5. **Check the Netlify deploy preview** before merging. Open the preview URL for the PR (see above) on desktop and phone width. Fetching it with `curl` only proves the text is there, not that it looks right.
 6. **The owner reviews and merges.** Claude should open PRs but must not merge one unless explicitly asked.
 7. Merging to `main` deploys to production.
 
