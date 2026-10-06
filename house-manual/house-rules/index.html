@@ -6,6 +6,7 @@
   <title>House How-To – Misquamicut Groove</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Gothic+A1:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/shared.css">
+  <script src="/scripts/nav.js" defer></script>
 </head>
 <body>
 
@@ -18,7 +19,16 @@
   <div class="nav-links">
     <a href="/">Home</a>
     <a href="/house-manual">House Manual</a>
-    <a href="/local-guide">Local Guide</a>
+    <div class="nav-dropdown">
+      <a href="/local-guide">Local Guide</a>
+      <button type="button" class="nav-caret" aria-label="Show Local Guide pages" aria-haspopup="true" aria-expanded="false"></button>
+      <div class="nav-menu">
+        <a href="/local-guide/beach">Beach Guide</a>
+        <a href="/local-guide/food-drink">Food &amp; Drink</a>
+        <a href="/local-guide/explore">Explore</a>
+        <a href="/local-guide/misc">Misc &amp; Useful</a>
+      </div>
+    </div>
     <a href="mailto:misquamicutgroove@gmail.com">Contact Us</a>
   </div>
 </nav>

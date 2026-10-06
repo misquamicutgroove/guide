@@ -8,13 +8,14 @@ Guest-facing site for the house at 2 Uzzi Ave, Westerly, RI: a House Manual and 
 - Netlify project: `sunny-belekoy-8b7edb` (dashboard: https://app.netlify.com/projects/sunny-belekoy-8b7edb). Production domain: `misquamicutgroove.com`.
 - Merging to `main` auto-deploys to production within a few minutes (confirmed Oct 2026). **Every PR automatically gets a Deploy Preview** at `https://deploy-preview-<PR number>--sunny-belekoy-8b7edb.netlify.app`. Netlify comments the link on the PR and adds a `deploy-preview` check.
 - Every page repeats the same nav and footer markup. There are no templates, so a new page means copying an existing one (e.g. `local-guide/misc/index.html`).
+- `scripts/nav.js` is the only script the shared nav needs. It lives in `scripts/`, **not** `js/`: `netlify.toml` caches `/js/*` for a year as immutable, so edits there would not reach visitors.
 - Shared styles live in `css/shared.css`. Useful classes: `.two-col`, `.divider`, `.info-table`, `.page-header`, `.page-content`.
 
 ## Site map
 - `/` home
 - `/house-manual` with `/instructions` and `/house-rules`
 - `/local-guide` landing page linking to `/beach`, `/food-drink`, `/explore`, `/misc`
-- **Local Guide sub-nav:** the four sub-pages each have a `<nav class="sub-nav">` tab bar right under the main nav (styles in `shared.css`). The current page's link gets `class="active" aria-current="page"`. **A new Local Guide page must copy this block** (and be added to the block on the other pages). The landing page intentionally has no sub-nav.
+- **Local Guide dropdown:** the main nav's "Local Guide" item is a dropdown (`<div class="nav-dropdown">` with a `.nav-caret` button and a `.nav-menu` list) on **all 8 pages that use the shared nav**, i.e. every House Manual and Local Guide page. The home page has its own nav. The page you are on gets `class="active" aria-current="page"` inside the menu. **A new Local Guide page must be added to the `.nav-menu` list on every page.** Open/close behavior (tap, click, Escape) is in `scripts/nav.js`; hover works from CSS alone.
 
 ## Content conventions
 - Listings are `<li><a href="..." target="_blank">Name</a> — short description</li>`. Use plain text, not a link, when no URL is known.
