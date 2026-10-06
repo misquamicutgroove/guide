@@ -30,5 +30,13 @@ Guest-facing site for the house at 2 Uzzi Ave, Westerly, RI: a House Manual and 
 
 **Never push directly to `main`.** Small ideas that aren't ready to work on become issues, not scope creep inside an unrelated PR.
 
+## GitHub accounts (important)
+The machine's default `gh` account is a different one (`earlehouse`, write access only). **This repo belongs to `misquamicutgroove`.**
+- **`git push` / `git fetch`** are already pinned to `misquamicutgroove` by a repo-local credential helper (in `.git/config`, not committed).
+- **`gh` commands** (issues, PRs, labels, API calls) must be prefixed so they act as the owner: `GH_TOKEN=$(gh auth token --user misquamicutgroove) gh ...`
+- Nothing is stored on disk; the token is read from the macOS keychain through `gh` each time.
+- If `gh auth status` doesn't list `misquamicutgroove`, stop and ask the owner to run `gh auth login` for that account.
+- Commit *authorship* is separate and comes from `git config user.name/user.email` (see the identity issue).
+
 ## Labels
 `content` (listings and copy), `design` (look and layout), `decision` (owner must choose), `needs-verification` (facts or visuals to check), `task` (setup and housekeeping), plus GitHub's defaults (`bug`, `enhancement`, `documentation`, ...).
