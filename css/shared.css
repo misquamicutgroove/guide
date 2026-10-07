@@ -38,6 +38,53 @@ body {
 .nav-links a:hover { color: #ce709d; }
 .nav-links a.active { color: #ce709d; }
 
+/* ── Nav dropdown (e.g. the Local Guide menu in the main nav) ── */
+.nav-links { align-self: stretch; align-items: center; }
+.nav-dropdown { position: relative; display: flex; align-items: center; align-self: stretch; }
+.nav-dropdown > a { padding-right: 2px; }
+.nav-caret {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: #333;
+  padding: 10px 12px 10px 4px;
+  display: flex;
+  align-items: center;
+  transition: color .2s;
+}
+.nav-caret::before {
+  content: "";
+  border: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  border-bottom: 0;
+}
+.nav-dropdown.open .nav-caret { color: #ce709d; }
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 190px;
+  background: #fff;
+  border: 1px solid #f0e0e8;
+  border-top: 3px solid #ce709d;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+  padding: 6px 0;
+  z-index: 200;
+}
+.nav-dropdown.open .nav-menu { display: block; }
+.nav-links .nav-menu a { display: block; padding: 10px 20px; white-space: nowrap; }
+.nav-links .nav-menu a:hover { background: #fdf0f5; }
+@media (hover: hover) {
+  .nav-dropdown:hover .nav-menu { display: block; }
+  .nav-dropdown:hover .nav-caret { color: #ce709d; }
+}
+@media (max-width: 640px) {
+  .nav-links a { padding: 10px 8px; }
+  .nav-caret { padding: 10px 8px 10px 2px; }
+}
+
 /* ── Page header ── */
 .page-header {
   text-align: center;
