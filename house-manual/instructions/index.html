@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instructions – Misquamicut Groove</title>
+  <title>Check In &amp; Check Out – Misquamicut Groove</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Gothic+A1:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/shared.css">
   <script src="/scripts/nav.js" defer></script>
@@ -18,7 +18,14 @@
   </a>
   <div class="nav-links">
     <a href="/">Home</a>
-    <a href="/house-manual">House Manual</a>
+    <div class="nav-dropdown">
+      <a href="/house-manual" class="active">House Manual</a>
+      <button type="button" class="nav-caret" aria-label="Show House Manual pages" aria-haspopup="true" aria-expanded="false"></button>
+      <div class="nav-menu">
+        <a href="/house-manual/instructions" class="active" aria-current="page">Check In &amp; Check Out</a>
+        <a href="/house-manual/house-rules">House How-To</a>
+      </div>
+    </div>
     <div class="nav-dropdown">
       <a href="/local-guide">Local Guide</a>
       <button type="button" class="nav-caret" aria-label="Show Local Guide pages" aria-haspopup="true" aria-expanded="false"></button>
@@ -34,7 +41,7 @@
 </nav>
 
 <div class="page-header">
-  <h1>INSTRUCTIONS</h1>
+  <h1>CHECK IN &amp; CHECK OUT</h1>
 </div>
 
 <div class="page-content">

@@ -84,6 +84,11 @@ body {
   .nav-links a { padding: 10px 8px; }
   .nav-caret { padding: 10px 8px 10px 2px; }
 }
+@media (max-width: 360px) {
+  .page-nav { padding: 0 3vw; }
+  .nav-links a { font-size: 13px; letter-spacing: 0; padding: 10px 5px; }
+  .nav-caret { padding: 10px 5px 10px 0; }
+}
 
 /* ── Page header ── */
 .page-header {
