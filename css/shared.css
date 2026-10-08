@@ -188,6 +188,7 @@ body {
 }
 .info-card .two-col { gap: 20px; }
 .info-card h3 { margin-top: 0; }
+.info-card h2 { border-bottom-color: #f0d0e0; }
 
 /* ── Lists ── */
 ul { padding-left: 20px; margin: 8px 0; }
