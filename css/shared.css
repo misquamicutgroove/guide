@@ -159,6 +159,15 @@ body {
   margin: 28px 0 8px;
 }
 
+/* ── Section note: small grey context line directly under a heading
+   (distance, ordering, caveats). Replaces the old pink section-label. ── */
+.section-note {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #757575;
+  margin: 0 0 12px;
+}
+
 /* ── Two-column grid ── */
 .two-col {
   display: grid;

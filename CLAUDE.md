@@ -9,7 +9,7 @@ Guest-facing site for the house at 2 Uzzi Ave, Westerly, RI: a House Manual and 
 - Merging to `main` auto-deploys to production within a few minutes (confirmed Oct 2026). **Every PR automatically gets a Deploy Preview** at `https://deploy-preview-<PR number>--sunny-belekoy-8b7edb.netlify.app`. Netlify comments the link on the PR and adds a `deploy-preview` check.
 - Every page repeats the same nav and footer markup. There are no templates, so a new page means copying an existing one (e.g. `local-guide/misc/index.html`).
 - `scripts/nav.js` is the only script the shared nav needs. It lives in `scripts/`, **not** `js/`: `netlify.toml` caches `/js/*` for a year as immutable, so edits there would not reach visitors.
-- Shared styles live in `css/shared.css`. Useful classes: `.two-col`, `.divider`, `.info-table`, `.page-header`, `.page-content`.
+- Shared styles live in `css/shared.css`. Useful classes: `.two-col`, `.divider`, `.info-table`, `.section-note` (small grey line under a heading), `.page-header`, `.page-content`.
 
 ## Site map
 - `/` home
