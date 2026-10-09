@@ -126,17 +126,6 @@ body {
   padding: 50px 5vw 80px;
 }
 
-/* ── Section labels ── */
-.section-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #ce709d;
-  margin-bottom: 10px;
-  display: block;
-}
-
 /* ── Section headings ── */
 .page-content h2 {
   font-family: 'Montserrat', sans-serif;
@@ -163,7 +152,7 @@ body {
 .page-content [id] { scroll-margin-top: 90px; }
 
 /* ── Section note: small grey context line directly under a heading
-   (distance, ordering, caveats). Replaces the old pink section-label. ── */
+   (distance, ordering, caveats). ── */
 .section-note {
   font-size: 13px;
   line-height: 1.5;

@@ -21,7 +21,12 @@ Guest-facing site for the house at 2 Uzzi Ave, Westerly, RI: a House Manual and 
 ## Content conventions
 - Listings are `<li><a href="..." target="_blank">Name</a> — short description</li>`. Use plain text, not a link, when no URL is known.
 - Internal links use absolute paths (`/local-guide/explore`).
-- Section headings are `<h2>`. The pink `.section-label` style is being phased out (see the open issue on it).
+- **Headings: one system on every page** (decided in #4). New pages and edits must follow it.
+  - `h1` is the page title. The pink script tagline above it stays.
+  - `h2` is every section title: the big green heading with the soft pink underline. There are no pink small-caps labels anymore, and the old `.section-label` style has been removed.
+  - `h3` is only for items or sub-groups *inside* a section. Never skip a level (h1, then h2, then h3). Known exception: the link-card titles on the two landing pages (tracked in #38).
+  - Context a heading needs (a distance, "in order of distance", a caveat) goes in a small grey `<p class="section-note">` directly under it, not in the heading and not in a label.
+  - Anchor ids go on the heading itself, for example `<h2 id="beach">`. `shared.css` has a `scroll-margin-top` rule so anchored headings land below the sticky nav instead of behind it.
 - This repo is **public**. Never put passwords, door codes, or other private details in issues, PRs, or commit messages.
 
 ## Workflow: everything goes through an issue and a pull request
