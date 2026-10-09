@@ -26,6 +26,7 @@ Guest-facing site for the house at 2 Uzzi Ave, Westerly, RI: a House Manual and 
   - `h2` is every section title: the big green heading with the soft pink underline. There are no pink small-caps labels anymore, and the old `.section-label` style has been removed.
   - `h3` is only for items or sub-groups *inside* a section. Never skip a level (h1, then h2, then h3). Known exception: the link-card titles on the two landing pages (tracked in #38).
   - Context a heading needs (a distance, "in order of distance", a caveat) goes in a small grey `<p class="section-note">` directly under it, not in the heading and not in a label.
+  - **Page titles (`h1`)** wrap on small screens, so keep an `&` attached to the word before it (`FOOD&nbsp;&amp; DRINK`) and keep short phrases together (`CHECK&nbsp;OUT`). Otherwise a line can start with `&` or end up with one lonely word. `shared.css` scales the title down on phones so the longest word (`MISQUAMICUT`) fits; a new title with a longer word needs a recheck at 320px.
   - Anchor ids go on the heading itself, for example `<h2 id="beach">`. `shared.css` has a `scroll-margin-top` rule so anchored headings land below the sticky nav instead of behind it.
 - This repo is **public**. Never put passwords, door codes, or other private details in issues, PRs, or commit messages.
 

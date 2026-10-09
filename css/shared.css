@@ -111,6 +111,12 @@ body {
   margin: 0;
   line-height: 1;
   letter-spacing: -1px;
+  text-wrap: balance;
+}
+/* Phones: scale the title with the screen so the longest word (MISQUAMICUT)
+   always fits instead of pushing the page sideways. */
+@media (max-width: 640px) {
+  .page-header h1 { font-size: clamp(28px, 11vw, 48px); }
 }
 .page-header .intro {
   max-width: 640px;
@@ -147,6 +153,9 @@ body {
   color: #1e3d2c;
   margin: 28px 0 8px;
 }
+
+/* Long link text (like a raw URL) wraps instead of pushing the page sideways on narrow phones */
+.page-content a { overflow-wrap: anywhere; }
 
 /* Anchor links (#beach, #hot-tub, ...) land below the sticky nav, not behind it */
 .page-content [id] { scroll-margin-top: 90px; }
