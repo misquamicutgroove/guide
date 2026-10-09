@@ -159,6 +159,9 @@ body {
   margin: 28px 0 8px;
 }
 
+/* Anchor links (#beach, #hot-tub, ...) land below the sticky nav, not behind it */
+.page-content [id] { scroll-margin-top: 90px; }
+
 /* ── Section note: small grey context line directly under a heading
    (distance, ordering, caveats). Replaces the old pink section-label. ── */
 .section-note {
