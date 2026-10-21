@@ -42,12 +42,22 @@ Guest-facing site for the house at 2 Uzzi Ave, Westerly, RI: a House Manual and 
 **Never push directly to `main`.** Small ideas that aren't ready to work on become issues, not scope creep inside an unrelated PR.
 
 ## GitHub accounts (important)
-The machine's default `gh` account is a different one (`earlehouse`, write access only). **This repo belongs to `misquamicutgroove`.**
-- **`git push` / `git fetch`** are already pinned to `misquamicutgroove` by a repo-local credential helper (in `.git/config`, not committed).
-- **`gh` commands** (issues, PRs, labels, API calls) must be prefixed so they act as the owner: `GH_TOKEN=$(gh auth token --user misquamicutgroove) gh ...`
-- Nothing is stored on disk; the token is read from the macOS keychain through `gh` each time.
-- If `gh auth status` doesn't list `misquamicutgroove`, stop and ask the owner to run `gh auth login` for that account.
-- Commit *authorship* is separate and comes from `git config user.name/user.email` (see the identity issue).
+**Each folder works with its own GitHub account.** This repo belongs to **`misquamicutgroove`**. The machine has several `gh` logins (run `gh auth status` to see them), and the *active* one changes, so never rely on it.
+
+- **`gh` commands** (issues, PRs, labels, API calls) must be prefixed so they act as this folder's account:
+  `GH_TOKEN=$(gh auth token --user "$(git config --local gh.user)") gh ...`
+  For this repo, `gh.user` is `misquamicutgroove`. Nothing is stored on disk; the token is read from the macOS keychain through `gh` each time.
+- **`git push` / `git fetch`** use a repo-local credential helper in `.git/config` that supplies that same account's token.
+- **Why:** git on this Mac uses one shared macOS keychain login (`osxkeychain`) for every folder, so a repo owned by a different account gets a permission error unless it overrides that locally.
+- **`.git/config` is not committed**, so a fresh clone or a new folder starts without this. Set it up once per repo (this is the same in every project; only the account name changes):
+  ```bash
+  git config --local gh.user <account>
+  git config --local credential.helper ''
+  git config --local --add credential.helper '!f() { test "$1" = get || exit 0; u=$(git config --local gh.user); [ -n "$u" ] || exit 0; echo "username=$u"; echo "password=$(gh auth token --user "$u")"; }; f'
+  ```
+- **If a push fails** (403, "permission denied", or it asks for a username): check `git config --local --get gh.user` and `git config --local --get-all credential.helper`, re-run the setup above if either is missing, and check that `gh auth status` lists the account. If the account isn't listed, stop and ask the owner to run `gh auth login` for it.
+- If `gh.user` is not set, the helper deliberately fails instead of falling back to another account.
+- Commit *authorship* is separate and comes from `git config user.name/user.email` (see #7).
 
 ## Labels
 `content` (listings and copy), `design` (look and layout), `decision` (owner must choose), `needs-verification` (facts or visuals to check), `task` (setup and housekeeping), plus GitHub's defaults (`bug`, `enhancement`, `documentation`, ...).
